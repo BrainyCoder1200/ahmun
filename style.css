@@ -426,6 +426,7 @@ a{color:inherit;text-decoration:none}
     .info-bar-item{border-right:none;border-bottom:1px solid var(--glass-border)}
     .info-bar-item:last-child{border-bottom:none}
     .theme-main-title{font-size:clamp(2.2rem,6vw,3.5rem)}
+    .committees-grid, .eb-cards-grid {grid-template-columns:1fr; gap: 20px;}
 }
 
 @media(max-width:480px){
