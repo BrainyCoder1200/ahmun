@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHMUN 8.0 | Fractures of Time</title>
+    <meta name="description" content="Eighth Annual Conference of Avalon Heights Model United Nations. 11th July, 2026. Fractures of Time — step into the cracks of history.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=5">
+</head>
+<body>
+
+    <!-- Particle Background Canvas -->
+    <canvas id="particle-bg" aria-hidden="true"></canvas>
+
+    <!-- Navigation Header -->
+    <header class="main-header" id="main-header">
+        <nav class="nav-container">
+            <a href="#home" class="nav-logo">
+                <div class="logo-crest">
+                    <img src="ICONS/ahmunlogo-removebg-preview.png" alt="AHMUN Logo">
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">AHMUN</span>
+                    <span class="logo-subtitle">8.0</span>
+                </div>
+            </a>
+
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <ul class="nav-links" id="nav-links-list">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#theme" class="nav-link">Theme</a></li>
+                <li><a href="#resources" class="nav-link">Resources</a></li>
+                <li><a href="#faqs" class="nav-link">FAQs</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-gold btn-small">Register <i class="fa-solid fa-arrow-right icon-btn"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+        <!-- ==================== HOME SECTION ==================== -->
+        <section id="home" class="route-section active">
+
+            <!-- Hero -->
+            <div class="hero-section">
+                <div class="hero-overlay"></div>
+                <div class="hero-content text-center">
+                    <div class="hero-logos animate-fade-in">
+                        <img src="ICONS/AHIS 25 Logo.png" alt="AHIS Logo" class="hero-school-logo">
+                        <span class="hero-logo-divider"></span>
+                        <img src="ICONS/ahmunlogo-removebg-preview.png" alt="AHMUN Logo" class="hero-mun-logo">
+                    </div>
+                    <div class="hero-badge animate-fade-in">AVALON HEIGHTS INTERNATIONAL SCHOOL PRESENTS</div>
+                    <h1 class="hero-title animate-slide-up">
+                        AHMUN <span class="text-gold">8.0</span>
+                    </h1>
+                    <p class="hero-tagline animate-slide-up">THE EIGHTH ANNUAL CONFERENCE</p>
+                    <div class="hero-theme-quote animate-fade-in">
+                        <span class="quote-mark">&ldquo;</span>Fractures of Time<span class="quote-mark">&rdquo;</span>
+                    </div>
+
+                    <!-- Event Details Pill -->
+                    <div class="hero-details animate-slide-up">
+                        <div class="detail-item">
+                            <i class="fa-solid fa-calendar-days text-gold"></i>
+                            <span>11th July, 2026</span>
+                        </div>
+                        <div class="detail-divider"></div>
+                        <div class="detail-item">
+                            <i class="fa-solid fa-location-dot text-gold"></i>
+                            <span>Vashi, Navi Mumbai</span>
+                        </div>
+                    </div>
+
+                    <!-- Countdown Timer -->
+                    <div class="countdown-label animate-fade-in">Countdown to AHMUN 8.0</div>
+                    <div class="countdown-container animate-fade-in" id="countdown-timer">
+                        <div class="countdown-item">
+                            <span class="number" id="days">00</span>
+                            <span class="label">Days</span>
+                        </div>
+                        <div class="countdown-sep">:</div>
+                        <div class="countdown-item">
+                            <span class="number" id="hours">00</span>
+                            <span class="label">Hours</span>
+                        </div>
+                        <div class="countdown-sep">:</div>
+                        <div class="countdown-item">
+                            <span class="number" id="minutes">00</span>
+                            <span class="label">Mins</span>
+                        </div>
+                        <div class="countdown-sep">:</div>
+                        <div class="countdown-item">
+                            <span class="number" id="seconds">00</span>
+                            <span class="label">Secs</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-cta animate-slide-up">
+                        <a href="#theme" class="btn btn-gold btn-large">Explore the Theme <i class="fa-solid fa-hourglass-half icon-btn"></i></a>
+                        <a href="#resources" class="btn btn-outline btn-large">Conference Guide</a>
+                    </div>
+
+                    <div class="scroll-indicator animate-fade-in">
+                        <span>Scroll to explore</span>
+                        <div class="scroll-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Ribbon -->
+            <div class="stats-ribbon">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="8">0</span>
+                            <span class="stat-label">Editions</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="500">0</span><span class="stat-plus">+</span>
+                            <span class="stat-label">Delegates Annually</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="30">0</span><span class="stat-plus">+</span>
+                            <span class="stat-label">Schools Participating</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="6">0</span>
+                            <span class="stat-label">Committees</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past MUN Carousel -->
+            <div class="container section-padding">
+                <div class="section-header text-center animate-trigger">
+                    <span class="section-subtitle">A GLIMPSE OF THE PAST</span>
+                    <h2 class="section-title">Past <span class="text-gold">Conferences</span></h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="carousel-wrapper animate-trigger">
+                    <div class="carousel-container" id="carousel">
+                        <div class="carousel-track" id="past-mun-track">
+                            <div class="carousel-slide active"><img src="PASTMUNPICS/WhatsApp%20Image%202025-06-24%20at%209.49.51%20PM.jpeg" alt="Past MUN 1"></div>
+                            <div class="carousel-slide"><img src="PASTMUNPICS/WhatsApp%20Image%202025-06-24%20at%209.49.52%20PM%20(1).jpeg" alt="Past MUN 2"></div>
+                            <div class="carousel-slide"><img src="PASTMUNPICS/WhatsApp%20Image%202025-06-24%20at%209.49.52%20PM.jpeg" alt="Past MUN 3"></div>
+                            <div class="carousel-slide"><img src="PASTMUNPICS/WhatsApp%20Image%202025-06-24%20at%209.49.54%20PM%20(1).jpeg" alt="Past MUN 4"></div>
+                            <div class="carousel-slide"><img src="PASTMUNPICS/WhatsApp%20Image%202025-06-24%20at%209.49.54%20PM.jpeg" alt="Past MUN 5"></div>
+                            <div class="carousel-slide"><img src="PASTMUNPICS/WhatsApp%20Image%202025-06-24%20at%209.49.55%20PM.jpeg" alt="Past MUN 6"></div>
+                            <div class="carousel-slide"><img src="PASTMUNPICS/WhatsApp%20Image%202025-06-24%20at%209.49.56%20PM.jpeg" alt="Past MUN 7"></div>
+                        </div>
+                        <button class="carousel-btn prev-btn" id="carousel-prev"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="carousel-btn next-btn" id="carousel-next"><i class="fa-solid fa-chevron-right"></i></button>
+                        <div class="carousel-dots" id="carousel-dots"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What is AHMUN? -->
+            <div class="container section-padding">
+                <div class="section-header text-center animate-trigger">
+                    <span class="section-subtitle">DISCOVER</span>
+                    <h2 class="section-title">What is <span class="text-gold">AHMUN</span>?</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="features-grid animate-trigger">
+                    <div class="feature-card glass-card">
+                        <div class="feature-icon"><i class="fa-solid fa-globe"></i></div>
+                        <h3>Global Vision</h3>
+                        <p>AHMUN connects, contrasts, and conceives unique solutions to global issues. We empower delegates to analyze intricate international problems and draft constructive resolutions.</p>
+                    </div>
+                    <div class="feature-card glass-card">
+                        <div class="feature-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                        <h3>Creative Freedom</h3>
+                        <p>Complete freedom to let your creative ideas flow and effective imagination blossom, addressing global challenges that deprive the world of love, peace, and unity.</p>
+                    </div>
+                    <div class="feature-card glass-card">
+                        <div class="feature-icon"><i class="fa-solid fa-users-line"></i></div>
+                        <h3>Future Leadership</h3>
+                        <p>A world of exciting possibilities to ensure the successful handover to the next generation, letting future leaders realize their potential and lead with discretion.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secretary-General's Letter -->
+            <div class="container section-padding">
+                <div class="section-header text-center animate-trigger">
+                    <span class="section-subtitle">FROM THE SECRETARIAT</span>
+                    <h2 class="section-title">Secretary-General's <span class="text-gold">Letter</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="sg-letter glass-card animate-trigger">
+                    <div class="sg-letter-watermark">AH</div>
+                    <div class="sg-header">
+                        <div class="sg-avatar">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <div class="sg-meta">
+                            <h3 class="text-gold">To Be Announced</h3>
+                            <p>Secretary-General, AHMUN 8.0</p>
+                        </div>
+                    </div>
+                    <div class="sg-body">
+                        <p><strong>Dear Delegates and Esteemed Executive Board Members,</strong></p>
+                        <p>Welcome to the Eighth Annual Conference of Avalon Heights Model United Nations (AHMUN 8.0), to be held on the 11th of July, 2026.</p>
+                        <p><em>The official letter from the Secretary-General will be published here soon. Stay tuned!</em></p>
+                        <div class="sg-signature">
+                            <p>Warm Regards,</p>
+                            <div class="signature-blur">Signature</div>
+                            <p class="sig-title">Secretary-General, AHMUN 8.0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== THEME SECTION ==================== -->
+        <section id="theme" class="route-section">
+
+            <!-- Immersive Theme Hero -->
+            <div class="theme-hero" id="theme-hero">
+                <canvas id="rift-canvas"></canvas>
+                <div class="theme-hero-overlay"></div>
+                <div class="theme-hero-content">
+                    <span class="theme-eyebrow">AHMUN 8.0 — THE CORE CONCEPT</span>
+                    <h2 class="theme-main-title">
+                        <span class="glitch" data-text="Fractures">Fractures</span>
+                        <span class="theme-of">of</span>
+                        <span class="glitch" data-text="Time">Time</span>
+                    </h2>
+                    <p class="theme-tagline">When the clock shatters, every fragment tells a different story.</p>
+                    <div class="theme-scroll-cue">
+                        <span>Explore Below</span>
+                        <i class="fa-solid fa-angles-down bounce-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme Content -->
+            <div class="container section-padding">
+                <div class="theme-split animate-trigger">
+                    <div class="theme-text">
+                        <span class="section-subtitle">THE CONCEPT</span>
+                        <blockquote class="theme-quote">
+                            &ldquo;Time does not heal all wounds&mdash;it hides them. Until the fractures surface.&rdquo;
+                        </blockquote>
+                        <p>Time is often spoken of as a river&mdash;continuous, flowing, unstoppable. But what if time is not a river? What if it is a mirror&mdash;whole only until a single strike sends fissures racing across its surface?</p>
+                        <p>"Fractures of Time" invites delegates to examine the breaking points of history&mdash;the moments where a single decision, a single event, sent shockwaves across decades and continents. These are not just cracks in the glass; they are doorways into worlds that could have been, and warnings about worlds that still might be.</p>
+                    </div>
+                    <div class="theme-visual">
+                        <div class="shattered-clock">
+                            <div class="clock-ring"></div>
+                            <div class="clock-face">
+                                <div class="hand hour"></div>
+                                <div class="hand minute"></div>
+                                <div class="clock-dot"></div>
+                                <span class="numeral n12">XII</span>
+                                <span class="numeral n3">III</span>
+                                <span class="numeral n6">VI</span>
+                                <span class="numeral n9">IX</span>
+                            </div>
+                            <svg class="cracks" viewBox="0 0 300 300">
+                                <path d="M150 0 L145 60 L130 95 L155 130 L140 150" />
+                                <path d="M300 150 L240 148 L200 135 L175 155 L150 150" />
+                                <path d="M150 300 L155 240 L170 200 L148 170 L150 150" />
+                                <path d="M0 150 L60 155 L100 170 L135 148 L150 150" />
+                                <path d="M50 50 L90 85 L120 110 L140 135 L150 150" />
+                                <path d="M250 50 L215 90 L190 115 L165 138 L150 150" />
+                                <path d="M250 250 L210 215 L185 190 L160 165 L150 150" />
+                                <path d="M50 250 L85 210 L110 185 L138 162 L150 150" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fractured Timeline -->
+            <div class="timeline-section">
+                <div class="container section-padding">
+                    <div class="section-header text-center animate-trigger">
+                        <span class="section-subtitle">WHEN TIME BROKE</span>
+                        <h2 class="section-title">The Fractured <span class="text-gold">Timeline</span></h2>
+                        <div class="section-line"></div>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-spine"></div>
+                        <div class="tl-item left animate-trigger">
+                            <div class="tl-dot"></div>
+                            <div class="tl-card glass-card">
+                                <span class="tl-era text-gold">The Past</span>
+                                <h4>Decisions That Shattered</h4>
+                                <p>History is littered with moments that fractured the status quo&mdash;colonial partitions drawn with rulers and ink, treaties signed in desperation, revolutions sparked by a single act of defiance.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item right animate-trigger">
+                            <div class="tl-dot"></div>
+                            <div class="tl-card glass-card">
+                                <span class="tl-era text-gold">The Present</span>
+                                <h4>Living in the Cracks</h4>
+                                <p>Today, we stand on fractured ground. Climate tipping points, digital surveillance, geopolitical fault lines&mdash;the cracks widening beneath our feet.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item left animate-trigger">
+                            <div class="tl-dot"></div>
+                            <div class="tl-card glass-card">
+                                <span class="tl-era text-gold">The Future</span>
+                                <h4>Piecing It Back Together</h4>
+                                <p>Can fractured time be mended? As delegates, you hold the glue&mdash;diplomacy, dialogue, and the audacity to imagine a different future from the fragments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme Call to Action -->
+            <div class="container section-padding">
+                <div class="theme-cta-section animate-trigger">
+                    <div class="theme-cta-bg">TIME</div>
+                    <div class="theme-cta-card glass-card">
+                        <h3 class="text-gold">The Fracture Is the Invitation</h3>
+                        <p>Every crack lets light in. Every break reveals what was hidden beneath the surface. "Fractures of Time" is not a story of destruction&mdash;it is a story of <strong class="text-gold">revelation</strong>.</p>
+                        <p>At AHMUN 8.0, you are not here to simply observe history&mdash;you are here to <strong>interrogate it, challenge it, and reimagine it</strong>.</p>
+                        <div class="theme-cta-callout">
+                            <p class="text-gold"><strong>Are you ready to step into the fracture?</strong></p>
+                            <p>To look through the cracks of time and find your own truth among the shards?</p>
+                            <p><em>We believe you are. Welcome to AHMUN 8.0 &mdash; Fractures of Time.</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== RESOURCES SECTION ==================== -->
+        <section id="resources" class="route-section">
+            <div class="container section-padding">
+                <div class="section-header text-center animate-trigger">
+                    <span class="section-subtitle">CONFERENCE DIRECTORY</span>
+                    <h2 class="section-title">Resources & <span class="text-gold">Information</span></h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <!-- Info Bar -->
+                <div class="info-bar glass-card animate-trigger">
+                    <div class="info-bar-item">
+                        <span class="info-label">Registration Fee</span>
+                        <span class="info-value text-gold">TBA</span>
+                    </div>
+                    <div class="info-bar-item">
+                        <span class="info-label">Reg. Deadline</span>
+                        <span class="info-value">To Be Announced</span>
+                    </div>
+                    <div class="info-bar-item">
+                        <span class="info-label">Date of Event</span>
+                        <span class="info-value">11 July, 2026</span>
+                    </div>
+                    <div class="info-bar-item">
+                        <span class="info-label">Eligibility</span>
+                        <span class="info-value">Grades 9-12</span>
+                    </div>
+                </div>
+
+                <!-- Awards & Nexora -->
+                <div class="resources-grid animate-trigger">
+                    <div class="glass-card resource-card">
+                        <div class="resource-badge"><i class="fa-solid fa-trophy"></i> Recognitions</div>
+                        <h3>AHMUN Awards</h3>
+                        <p>Excellence in debate, research, and diplomacy:</p>
+                        <ul class="award-list">
+                            <li><i class="fa-solid fa-award text-gold"></i> <strong>Best Delegate</strong> &mdash; Utmost precision and resolution leadership</li>
+                            <li><i class="fa-solid fa-award text-gold"></i> <strong>High Commendation</strong> &mdash; Exceptional speaking and debating</li>
+                            <li><i class="fa-solid fa-award text-gold"></i> <strong>Special Mention</strong> &mdash; Outstanding research and strategy</li>
+                            <li><i class="fa-solid fa-shield-halved text-gold"></i> <strong>Best Delegation</strong> &mdash; Highest tally (min. 7 delegates)</li>
+                        </ul>
+                    </div>
+                    <div class="glass-card resource-card nexora-card">
+                        <div class="resource-badge nexora-badge"><i class="fa-solid fa-champagne-glasses"></i> Social Event</div>
+                        <h3>Nexora: Sundown Soirée</h3>
+                        <p>Our signature networking event designed for delegates and Executive Board members to connect.</p>
+                        <div class="nexora-grid">
+                            <div class="nexora-item"><i class="fa-solid fa-music text-gold"></i><div><h5>Atmosphere</h5><p>Live music, visual backdrops</p></div></div>
+                            <div class="nexora-item"><i class="fa-solid fa-utensils text-gold"></i><div><h5>Catering</h5><p>Dinner buffet & mocktails</p></div></div>
+                            <div class="nexora-item"><i class="fa-solid fa-comments text-gold"></i><div><h5>Networking</h5><p>Meet the EB & delegates</p></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brochure -->
+                <div class="brochure-section animate-trigger">
+                    <div class="section-header text-center">
+                        <h3 class="section-title" style="font-size:1.6rem;">Official <span class="text-gold">Brochure</span></h3>
+                    </div>
+                    <div class="glass-card brochure-card">
+                        <div class="brochure-preview">
+                            <div class="brochure-page">
+                                <span class="brochure-badge">AHMUN 8.0</span>
+                                <h2>CONFERENCE MANUAL</h2>
+                                <div class="brochure-line"></div>
+                                <p>2026 EDITION | NAVI MUMBAI</p>
+                            </div>
+                        </div>
+                        <div class="brochure-info">
+                            <h4 class="text-gold"><i class="fa-solid fa-book-open"></i> Brochure Details</h4>
+                            <p>The official brochure with fee details, schedule, and committee slots will be published here once registration dates are announced.</p>
+                            <div class="brochure-actions">
+                                <a href="#contact" class="btn btn-gold"><i class="fa-solid fa-bell icon-btn"></i> Get Notified</a>
+                                <span class="btn btn-outline btn-disabled"><i class="fa-solid fa-lock icon-btn"></i> Coming Soon</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FAQS SECTION ==================== -->
+        <section id="faqs" class="route-section">
+            <div class="container section-padding">
+                <div class="section-header text-center animate-trigger">
+                    <span class="section-subtitle">HAVE QUESTIONS?</span>
+                    <h2 class="section-title">Frequently Asked <span class="text-gold">Questions</span></h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="faq-search animate-trigger">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="faq-search-input" placeholder="Search questions...">
+                    <button id="faq-search-clear"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <div class="faq-list animate-trigger" id="faq-list">
+                    <div class="faq-item" data-keywords="what is mun delegate simulate">
+                        <button class="faq-trigger"><span>What is Model United Nations (MUN)?</span><i class="fa-solid fa-plus"></i></button>
+                        <div class="faq-content"><p>Model United Nations is an academic simulation of the United Nations where students play the role of delegates from different countries and attempt to solve real-world issues with the policies and perspectives of their assigned country.</p></div>
+                    </div>
+                    <div class="faq-item" data-keywords="dress code clothes formal traditional">
+                        <button class="faq-trigger"><span>What is the Dress Code?</span><i class="fa-solid fa-plus"></i></button>
+                        <div class="faq-content"><p>Delegates are required to dress in appropriate Western Formals or Semi-Formals. For AIPPM delegates, Indian Traditional wear or Indian Formals are encouraged.</p></div>
+                    </div>
+                    <div class="faq-item" data-keywords="eligibility grade age schools who participate">
+                        <button class="faq-trigger"><span>Who is eligible to participate?</span><i class="fa-solid fa-plus"></i></button>
+                        <div class="faq-content"><p>Students currently studying in Grade 9 through Grade 12 are eligible to register and participate as delegates in AHMUN 8.0.</p></div>
+                    </div>
+                    <div class="faq-item" data-keywords="prepare research resources guide ROP">
+                        <button class="faq-trigger"><span>How do I prepare for AHMUN?</span><i class="fa-solid fa-plus"></i></button>
+                        <div class="faq-content"><p>We will be conducting an official Rules of Procedure (ROP) Session for all registered delegates. Study guides for each committee will be provided. For primary research, refer to trusted international organization websites.</p></div>
+                    </div>
+                    <div class="faq-item" data-keywords="registration fee cost ticket delegate register">
+                        <button class="faq-trigger"><span>When will registrations open and what is the fee?</span><i class="fa-solid fa-plus"></i></button>
+                        <div class="faq-content"><p>Registrations for AHMUN 8.0 have not opened yet, and the delegate fee is currently undecided. Once registration goes live, links and payment portals will be accessible on this site.</p></div>
+                    </div>
+                    <div class="faq-item" data-keywords="awards best delegate commendation">
+                        <button class="faq-trigger"><span>What awards can I win?</span><i class="fa-solid fa-plus"></i></button>
+                        <div class="faq-content"><p>Committees award Best Delegate, High Commendation, and Special Mention to top-performing delegates based on debate contribution, diplomacy, and leadership.</p></div>
+                    </div>
+                    <div class="faq-item" data-keywords="benefits skills confidence public speaking">
+                        <button class="faq-trigger"><span>What are the benefits of attending?</span><i class="fa-solid fa-plus"></i></button>
+                        <div class="faq-content"><p>AHMUN sharpens analytical and critical thinking, builds confidence, boosts public speaking and negotiation skills, and serves as an exceptional addition to your profile for college admissions.</p></div>
+                    </div>
+                    <div class="faq-item" data-keywords="best delegation school shield team">
+                        <button class="faq-trigger"><span>How does a school qualify for Best Delegation?</span><i class="fa-solid fa-plus"></i></button>
+                        <div class="faq-content"><p>The Best Delegation Shield is presented to the institution that gathers the highest tally of accolades across all committees. A school must send a delegation of at least 7 delegates to qualify.</p></div>
+                    </div>
+                </div>
+
+                <div class="faq-empty glass-card text-center hidden" id="faq-empty-state">
+                    <i class="fa-solid fa-circle-question text-gold" style="font-size: 2.5rem;"></i>
+                    <h4>No Match Found</h4>
+                    <p class="text-muted">Try searching for "dress code", "fee", or "awards".</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT SECTION ==================== -->
+        <section id="contact" class="route-section">
+            <div class="container section-padding">
+                <div class="section-header text-center animate-trigger">
+                    <span class="section-subtitle">GET IN TOUCH</span>
+                    <h2 class="section-title">Contact & <span class="text-gold">Venue</span></h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="contact-grid animate-trigger" style="max-width:800px; margin:0 auto 40px;">
+                    <div class="contact-info">
+                        <div class="glass-card contact-card">
+                            <i class="fa-solid fa-location-dot text-gold"></i>
+                            <h4>Venue</h4>
+                            <p>Avalon Heights International School,<br>APMC Market 2, Phase 2, Sector 19B, Vashi,<br>Navi Mumbai, Maharashtra 400703</p>
+                            <a href="https://maps.google.com/?q=Avalon+Heights+International+School+Vashi" target="_blank" rel="noopener noreferrer" class="link-gold">Get Directions <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                        <div class="glass-card contact-card">
+                            <i class="fa-solid fa-envelope text-gold"></i>
+                            <h4>Email</h4>
+                            <p><strong>Secretariat:</strong> <a href="mailto:ahmun@avalonheights.co.in" class="link-gold">ahmun@avalonheights.co.in</a></p>
+                            <p><strong>MUN Co-ordinator:</strong> TBA</p>
+                            <p><strong>Secretary-General:</strong> TBA</p>
+                        </div>
+                        <div class="glass-card contact-card">
+                            <i class="fa-brands fa-instagram text-gold"></i>
+                            <h4>Social</h4>
+                            <p>Follow for committee announcements and delegate training.</p>
+                            <a href="https://instagram.com/ahmun_7.0" target="_blank" rel="noopener noreferrer" class="link-gold">@ahmun_7.0 <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="map-section animate-trigger">
+                    <div class="glass-card map-card">
+                        <div class="map-placeholder">
+                            <i class="fa-solid fa-map-location-dot text-gold"></i>
+                            <h3>Avalon Heights International School</h3>
+                            <p>APMC Market 2, Phase 2, Vashi, Navi Mumbai</p>
+                            <a href="https://maps.google.com/?q=Avalon+Heights+International+School+Vashi" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-small">Open in Google Maps</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-glow"></div>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo-row">
+                        <img src="ICONS/ahmunlogo-removebg-preview.png" alt="AHMUN Logo" class="footer-logo-img">
+                        <div>
+                            <span class="footer-title">AHMUN 8.0</span>
+                            <span class="footer-theme">"Fractures of Time"</span>
+                        </div>
+                    </div>
+                    <p class="footer-desc">Empowering youth agency, diplomatic excellence, and strategic debate through the student body of Avalon Heights International School.</p>
+                    <div class="footer-socials">
+                        <a href="https://instagram.com/ahmun_7.0" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="mailto:ahmun@avalonheights.co.in"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="https://www.ahmun.org" target="_blank"><i class="fa-solid fa-globe"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#theme">Theme</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                        <li><a href="#faqs">FAQs</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Important</h4>
+                    <ul>
+                        <li><a href="#contact">Registration (Opening Soon)</a></li>
+                        <li><a href="#resources">Conference Brochure</a></li>
+                        <li><a href="#resources">Nexora Social</a></li>
+                        <li><a href="#faqs">Awards Structure</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fa-solid fa-user text-gold"></i> Secretary-General (TBA)</p>
+                    <p><i class="fa-solid fa-envelope text-gold"></i> <a href="mailto:ahmun@avalonheights.co.in">ahmun@avalonheights.co.in</a></p>
+                    <p><i class="fa-solid fa-school text-gold"></i> Avalon Heights, Vashi</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Avalon Heights Model United Nations. All rights reserved.</p>
+                <p class="footer-credit">Crafted with <i class="fa-solid fa-heart text-gold"></i> by the AHMUN Organizing Committee</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js?v=5"></script>
+</body>
+</html>
