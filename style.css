@@ -407,7 +407,7 @@ a{color:inherit;text-decoration:none}
     .menu-toggle{display:flex;position:relative;z-index:1005}
     .nav-links{position:fixed;top:var(--header-h);left:0;right:0;background:rgba(11,17,32,.97);backdrop-filter:blur(20px);flex-direction:column;padding:24px;gap:0;border-bottom:1px solid var(--glass-border);transform:translateY(-120%);opacity:0;pointer-events:none;transition:transform .4s var(--ease),opacity .4s var(--ease);z-index:999}
     .nav-links.mobile-open{transform:translateY(0);opacity:1;pointer-events:auto}
-    .nav-link{padding:14px 0;width:100%;text-align:center;border-bottom:1px solid var(--glass-border)}
+    .nav-link{display:block;padding:16px 0;width:100%;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)}
     .nav-actions{display:none}
     .hero-logos{gap:14px}
     .hero-school-logo{height:45px}
@@ -427,14 +427,16 @@ a{color:inherit;text-decoration:none}
     .info-bar-item:last-child{border-bottom:none}
     .theme-main-title{font-size:clamp(2.2rem,6vw,3.5rem)}
     .committees-grid, .eb-cards-grid {grid-template-columns:1fr; gap: 20px;}
+    .section-padding{padding:60px 0}
 }
 
 @media(max-width:480px){
-    .countdown-container{gap:8px}
-    .countdown-item{min-width:76px;padding:12px 8px}
-    .countdown-item .number{font-size:2rem}
-    .countdown-item .label{font-size:.75rem}
-    .countdown-sep{font-size:2rem;margin-top:-14px}
+    .container{padding:0 16px}
+    .countdown-container{gap:4px;width:100%;max-width:100%}
+    .countdown-item{min-width:0;flex:1;padding:10px 4px}
+    .countdown-item .number{font-size:1.8rem}
+    .countdown-item .label{font-size:.65rem}
+    .countdown-sep{font-size:1.8rem;margin:0 2px;margin-top:-14px}
     .shattered-clock{width:220px;height:220px}
 }
 
