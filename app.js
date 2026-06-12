@@ -338,6 +338,7 @@ function openCommitteeModal(title, fullname, iconHtml, agenda, desc) {
     document.getElementById("modal-icon").innerHTML = iconHtml;
     document.getElementById("modal-agenda").innerText = agenda;
     document.getElementById("modal-desc").innerText = desc;
+    document.getElementById("meet-eb-btn").href = "#eb-" + title;
     
     document.getElementById("committee-modal").classList.add("active");
     document.body.style.overflow = "hidden"; // Prevent background scrolling
