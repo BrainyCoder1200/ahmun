@@ -211,20 +211,7 @@ a{color:inherit;text-decoration:none}
 
 /* Shattered Clock */
 .theme-visual{display:flex;justify-content:center}
-.shattered-clock{position:relative;width:280px;height:280px}
-.clock-ring{position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--gold-border);animation:pulseRing 3s ease-in-out infinite}
-@keyframes pulseRing{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.8;transform:scale(1.04)}}
-.clock-face{position:absolute;inset:0;border-radius:50%;border:2px solid var(--gold);background:radial-gradient(circle,rgba(17,27,48,.9) 0%,var(--bg-deep) 100%);display:flex;align-items:center;justify-content:center}
-.hand{position:absolute;bottom:50%;left:50%;transform-origin:bottom center;border-radius:2px;background:var(--gold)}
-.hour{width:3px;height:55px;transform:translateX(-50%) rotate(210deg);animation:rotateHour 43200s linear infinite}
-.minute{width:2px;height:75px;transform:translateX(-50%) rotate(45deg);animation:rotateMinute 3600s linear infinite}
-@keyframes rotateHour{to{transform:translateX(-50%) rotate(570deg)}}
-@keyframes rotateMinute{to{transform:translateX(-50%) rotate(405deg)}}
-.clock-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);z-index:5}
-.numeral{position:absolute;font-family:var(--font-head);font-size:.9rem;color:var(--gold);font-weight:600}
-.n12{top:14px}.n3{right:14px}.n6{bottom:14px}.n9{left:14px}
-.cracks{position:absolute;inset:0;z-index:3;pointer-events:none}
-.cracks path{fill:none;stroke:rgba(253,201,52,.25);stroke-width:1.5;stroke-dasharray:300;stroke-dashoffset:300;animation:drawCrack 2s ease forwards}
+
 .cracks path:nth-child(2){animation-delay:.3s}.cracks path:nth-child(3){animation-delay:.5s}.cracks path:nth-child(4){animation-delay:.7s}.cracks path:nth-child(5){animation-delay:.9s}.cracks path:nth-child(6){animation-delay:1.1s}.cracks path:nth-child(7){animation-delay:1.3s}.cracks path:nth-child(8){animation-delay:1.5s}
 @keyframes drawCrack{to{stroke-dashoffset:0}}
 
@@ -299,8 +286,8 @@ a{color:inherit;text-decoration:none}
 .committee-card:hover{transform:translateY(-5px);box-shadow:var(--gold-glow);border-color:var(--gold-border)}
 .committee-header{display:flex;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--glass-border);padding-bottom:16px}
 .committee-icon{width:50px;height:50px;background:rgba(253,201,52,0.1);color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:16px;border:1px solid var(--gold-border)}
-.committee-img{width:26px;height:26px;object-fit:contain}
-.eb-title-img{width:20px;height:20px;object-fit:contain;margin-right:8px;}
+.committee-img{width:36px;height:36px;object-fit:contain}
+.eb-title-img{width:30px;height:30px;object-fit:contain;margin-right:10px;vertical-align:middle;margin-top:-4px}
 .modal-icon img{width:36px;height:36px;object-fit:contain}
 .committee-header h3{font-size:1.8rem;font-family:var(--font-head);letter-spacing:1px;margin-bottom:4px;color:var(--text)}
 .committee-full-name{font-size:0.85rem;color:var(--text-sec);text-transform:uppercase;letter-spacing:1px;font-weight:600}
@@ -344,10 +331,10 @@ a{color:inherit;text-decoration:none}
    ============================================================ */
 .contact-grid{display:block;margin-bottom:40px}
 .contact-info{display:flex;flex-direction:column;gap:16px}
-.contact-card{display:flex;gap:16px;align-items:flex-start;padding:24px}
+.contact-card{display:flex;gap:16px;align-items:flex-start;padding:24px;word-break:break-word}
 .contact-card>i{font-size:1.5rem;margin-top:2px;flex-shrink:0}
 .contact-card h4{font-size:1rem;margin-bottom:6px;font-weight:600}
-.contact-card p{color:var(--text-sec);font-size:.9rem;margin-bottom:4px}
+.contact-card p{color:var(--text-sec);font-size:.9rem;margin-bottom:4px;overflow-wrap:anywhere}
 
 /* Map */
 .map-section{margin-top:20px}
@@ -562,15 +549,7 @@ a{color:inherit;text-decoration:none}
     .countdown-item .number{font-size:1.8rem}
     .countdown-item .label{font-size:.65rem}
     .countdown-sep{font-size:1.8rem;margin:0 2px;margin-top:-14px}
-    .shattered-clock{width:220px;height:220px}
-}
-
-/* Reduce motion */
-@media(prefers-reduced-motion:reduce){
-    .glitch::before,.glitch::after{animation:none!important}
-    .animate-trigger{transition:none!important;opacity:1!important;transform:none!important}
-    .hand{animation:none!important}
-    .cracks path{animation:none!important;stroke-dashoffset:0}
+    
 }
 
 .eb-group { scroll-margin-top: 100px; }
@@ -773,3 +752,120 @@ body:hover .cursor-glow { opacity: 1; }
     transition: all 0.3s;
 }
 .carousel-dot.active { background: var(--gold); transform: scale(1.4); box-shadow: 0 0 10px var(--gold); }
+
+.doomsday-clock {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    border: 4px solid var(--gold);
+    background: rgba(11, 17, 32, 0.4);
+    box-shadow: 0 0 35px rgba(206,172,105,0.25), inset 0 0 20px rgba(206,172,105,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    backdrop-filter: blur(5px);
+}
+.doomsday-clock::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--gold);
+    z-index: 5;
+    box-shadow: 0 0 15px var(--gold);
+}
+.dd-hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    background: var(--gold);
+    border-radius: 4px;
+    box-shadow: 0 0 12px var(--gold);
+}
+.dd-minute {
+    width: 4px;
+    height: 110px;
+    margin-left: -2px;
+    transform: rotate(351deg); /* 85 Seconds to Midnight */
+    animation: tick-tock 1s infinite alternate;
+}
+.dd-hour {
+    width: 6px;
+    height: 70px;
+    margin-left: -3px;
+    transform: rotate(0deg); /* Midnight */
+}
+.dd-mark {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold);
+    font-family: var(--font-head);
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-shadow: 0 0 15px var(--gold);
+}
+.dd-crack {
+    position: absolute;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+@keyframes tick-tock {
+    0% { transform: rotate(351.5deg); }
+    100% { transform: rotate(352deg); }
+}
+
+/* Mobile Fixes for 3D Carousel and Clock */
+@media(max-width: 768px) {
+    .carousel-container {
+        height: 300px;
+    }
+    .carousel-slide {
+        width: 80%;
+        height: 200px;
+        margin-left: -40%;
+        margin-top: -100px;
+    }
+    .doomsday-clock {
+        width: 220px;
+        height: 220px;
+    }
+    .dd-minute {
+        height: 80px;
+    }
+    .dd-hour {
+        height: 50px;
+    }
+    .dd-mark {
+        font-size: 1.2rem;
+        top: 10px;
+    }
+}
+@media(max-width: 480px) {
+    .carousel-container {
+        height: 250px;
+    }
+    .carousel-slide {
+        width: 90%;
+        height: 180px;
+        margin-left: -45%;
+        margin-top: -90px;
+    }
+    .doomsday-clock {
+        width: 200px;
+        height: 200px;
+    }
+    .dd-minute {
+        height: 70px;
+    }
+    .dd-hour {
+        height: 40px;
+    }
+}
