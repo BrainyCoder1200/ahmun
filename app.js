@@ -329,3 +329,28 @@ document.addEventListener("DOMContentLoaded", () => {
     observeAll();
     navigateToHash();
 });
+
+
+// ========== MODALS ==========
+function openCommitteeModal(title, fullname, iconHtml, agenda, desc) {
+    document.getElementById("modal-title").innerText = title;
+    document.getElementById("modal-fullname").innerText = fullname;
+    document.getElementById("modal-icon").innerHTML = iconHtml;
+    document.getElementById("modal-agenda").innerText = agenda;
+    document.getElementById("modal-desc").innerText = desc;
+    
+    document.getElementById("committee-modal").classList.add("active");
+    document.body.style.overflow = "hidden"; // Prevent background scrolling
+}
+
+function closeCommitteeModal() {
+    document.getElementById("committee-modal").classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+// Close modal when clicking outside of the content
+document.getElementById("committee-modal").addEventListener("click", function(e) {
+    if (e.target === this) {
+        closeCommitteeModal();
+    }
+});
