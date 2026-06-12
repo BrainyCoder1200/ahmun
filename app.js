@@ -14,7 +14,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function triggerSectionAnimations(section) {
-        observeAll();
+        
+    // ========== CURSOR GLOW EFFECT ==========
+    const cursorGlow = document.getElementById('cursor-glow');
+    if (cursorGlow) {
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
+        
+        // Expand glow on interactive elements
+        const interactives = document.querySelectorAll('a, button, .committee-card, .eb-card');
+        interactives.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorGlow.style.width = '400px';
+                cursorGlow.style.height = '400px';
+                cursorGlow.style.background = 'radial-gradient(circle, rgba(206,172,105,0.25) 0%, rgba(0,0,0,0) 70%)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorGlow.style.width = '300px';
+                cursorGlow.style.height = '300px';
+                cursorGlow.style.background = 'radial-gradient(circle, rgba(206,172,105,0.15) 0%, rgba(0,0,0,0) 70%)';
+            });
+        });
+    }
+
+    observeAll();
         section.querySelectorAll(".animate-trigger").forEach(el => {
             setTimeout(() => {
                 if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("visible");
@@ -326,6 +351,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ========== INIT ROUTING (must be last) ==========
+    
+    // ========== CURSOR GLOW EFFECT ==========
+    const cursorGlow = document.getElementById('cursor-glow');
+    if (cursorGlow) {
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
+        
+        // Expand glow on interactive elements
+        const interactives = document.querySelectorAll('a, button, .committee-card, .eb-card');
+        interactives.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorGlow.style.width = '400px';
+                cursorGlow.style.height = '400px';
+                cursorGlow.style.background = 'radial-gradient(circle, rgba(206,172,105,0.25) 0%, rgba(0,0,0,0) 70%)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorGlow.style.width = '300px';
+                cursorGlow.style.height = '300px';
+                cursorGlow.style.background = 'radial-gradient(circle, rgba(206,172,105,0.15) 0%, rgba(0,0,0,0) 70%)';
+            });
+        });
+    }
+
     observeAll();
     navigateToHash();
 });
