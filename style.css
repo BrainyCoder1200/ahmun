@@ -93,7 +93,7 @@ a{color:inherit;text-decoration:none}
 /* ============================================================
    HEADER
    ============================================================ */
-.main-header{position:fixed;top:0;left:0;width:100%;height:var(--header-h);z-index:1000;background:rgba(11,17,32,.5);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--glass-border);transition:all .4s var(--ease)}
+.main-header{position:fixed;top:0;left:0;width:100%;height:var(--header-h);z-index:1000;background:rgba(11,17,32,.75);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--glass-border);transition:all .4s var(--ease)}
 .main-header.scrolled{height:64px;background:rgba(11,17,32,.92);box-shadow:0 4px 20px rgba(0,0,0,.4)}
 .nav-container{max-width:var(--max-w);height:100%;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
@@ -110,7 +110,7 @@ a{color:inherit;text-decoration:none}
 .nav-link.active::after{width:100%}
 .nav-actions .btn{font-size:.85rem}
 .menu-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;width:28px;padding:4px 0}
-.menu-toggle .bar{width:100%;height:2px;background:var(--text);transition:all .3s var(--ease);border-radius:2px}
+.menu-toggle .bar{width:100%;height:2px;background:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.8);transition:all .3s var(--ease);border-radius:2px}
 
 /* === ROUTING === */
 .main-content{margin-top:var(--header-h);position:relative;z-index:1}
@@ -830,6 +830,9 @@ body:hover .cursor-glow { opacity: 1; }
     .carousel-container {
         height: 300px;
     }
+    .carousel-btn { width: 40px; height: 40px; font-size: 1rem; }
+    .prev-btn { left: 5px; }
+    .next-btn { right: 5px; }
     .carousel-slide {
         width: 80%;
         height: 200px;
