@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=5">
+    <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 
@@ -195,18 +195,23 @@
                     <h2 class="section-title">Secretary-General's <span class="text-gold">Letter</span></h2>
                     <div class="section-line"></div>
                 </div>
-                <div class="sg-letter glass-card animate-trigger">
+                <div class="sg-letter glass-card animate-trigger" style="padding: 40px; position: relative;">
                     <div class="sg-letter-watermark">AH</div>
-                    <div class="sg-header">
-                        <div class="sg-avatar">
-                            <img src="ahmunwebsite/OC pics/Nishita.jpeg" alt="Nishita Agarwal">
-                        </div>
+                    
+                    <div class="sg-header" style="border-bottom: 1px solid var(--glass-border); padding-bottom: 25px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
                         <div class="sg-meta">
-                            <h3 class="text-gold">Nishita Agarwal</h3>
-                            <p>Secretary-General, AHMUN 8.0</p>
+                            <h3 class="text-gold" style="font-size: 1.8rem; margin-bottom: 4px;">Nishita Agarwal</h3>
+                            <p style="font-size: 1rem; color: var(--text-muted);">Secretary-General, AHMUN 8.0</p>
+                        </div>
+                        
+                        <!-- SecGen Image Top Right -->
+                        <div style="flex-shrink: 0;">
+                            <img src="ahmunwebsite/OC pics/Nishita.jpeg" alt="Nishita Agarwal" style="height: 140px; width: auto; max-width: 100%; border-radius: var(--radius); box-shadow: 0 8px 25px rgba(0,0,0,0.4); border: 2px solid var(--gold-border); display: block;">
                         </div>
                     </div>
+                    
                     <div class="sg-body">
+                        
                         <p><strong>Dear Delegates and Esteemed Executive Board Members,</strong></p>
                         <p>It is my privilege to welcome you to the Eighth Annual Conference of Avalon Heights Model United Nations.</p>
                         <p>For years, AHMUN has been a space where passionate individuals come together to exchange ideas, challenge perspectives, and engage with the issues shaping our world. Beyond committee sessions and resolutions, it is a place where conversations begin, friendships are formed, and confidence is built.</p>
@@ -218,6 +223,7 @@
                             <h3 class="text-gold" style="font-family: cursive, 'Brush Script MT', 'Dancing Script'; font-size: 2rem; margin: 15px 0;">Nishita Agarwal</h3>
                             <p class="sig-title">Secretary-General, AHMUN 8.0</p>
                         </div>
+                        <div style="clear: both;"></div>
                     </div>
                 </div>
             </div>

@@ -173,8 +173,8 @@ a{color:inherit;text-decoration:none}
 .sg-letter{max-width:850px;margin:0 auto;border-color:var(--gold-border);box-shadow:var(--gold-glow)}
 .sg-letter-watermark{position:absolute;right:5%;bottom:5%;font-family:var(--font-head);font-size:clamp(6rem,20vw,12rem);font-weight:800;color:rgba(253,201,52,.03);pointer-events:none;line-height:1}
 .sg-header{display:flex;align-items:center;gap:20px;border-bottom:1px solid var(--glass-border);padding-bottom:20px;margin-bottom:28px}
-.sg-avatar{width:110px;height:110px;border-radius:50%;border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;background:var(--bg-deep)}
-.sg-avatar img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.sg-avatar{max-width:250px;border-radius:8px;border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;background:var(--bg-deep);box-shadow:0 5px 15px rgba(0,0,0,0.3)}
+.sg-avatar img{width:100%;height:auto;display:block}
 .sg-meta h3{font-size:1.3rem;margin-bottom:3px}
 .sg-meta p{font-size:.85rem;color:var(--text-muted)}
 .sg-body p{margin-bottom:16px;color:var(--text-sec);text-align:justify}
