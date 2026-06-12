@@ -338,7 +338,22 @@ function openCommitteeModal(title, fullname, iconHtml, agenda, desc) {
     document.getElementById("modal-icon").innerHTML = iconHtml;
     document.getElementById("modal-agenda").innerText = agenda;
     document.getElementById("modal-desc").innerText = desc;
-    document.getElementById("meet-eb-btn").href = "#eb-" + title;
+    const meetBtn = document.getElementById("meet-eb-btn");
+    meetBtn.href = "javascript:void(0)";
+    meetBtn.onclick = function(e) {
+        e.preventDefault();
+        closeCommitteeModal();
+        window.location.hash = "#executive-board";
+        setTimeout(() => {
+            const ebSection = document.getElementById("eb-" + title);
+            if(ebSection) {
+                const headerOffset = 100;
+                const elementPosition = ebSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+            }
+        }, 50);
+    };
     
     document.getElementById("committee-modal").classList.add("active");
     document.body.style.overflow = "hidden"; // Prevent background scrolling
