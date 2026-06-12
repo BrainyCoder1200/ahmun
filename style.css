@@ -241,8 +241,11 @@ a{color:inherit;text-decoration:none}
 .theme-cta-card{max-width:800px;margin:0 auto;border-color:var(--gold-border);box-shadow:var(--gold-glow);position:relative;z-index:1}
 .theme-cta-card h3{font-size:1.5rem;margin-bottom:16px}
 .theme-cta-card p{color:var(--text-sec);font-size:1.02rem;line-height:1.8;margin-bottom:16px}
-.theme-cta-callout{background:rgba(253,201,52,.04);border-left:3px solid var(--gold);padding:20px 24px;border-radius:0 var(--radius) var(--radius) 0;margin-top:24px}
-.theme-cta-callout p{margin-bottom:8px}
+.theme-cta-callout{background:linear-gradient(135deg, rgba(206,172,105,0.12) 0%, rgba(17,27,48,0.3) 100%);border:1px solid rgba(206,172,105,0.2);border-left:5px solid var(--gold);padding:26px 32px;border-radius:var(--radius);margin-top:32px;box-shadow:0 10px 30px rgba(0,0,0,0.35), 0 0 25px rgba(206,172,105,0.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.theme-cta-callout p{margin-bottom:8px;font-size:0.98rem;line-height:1.65}
+.theme-cta-callout p.highlight-title{color:var(--gold) !important;font-weight:700;font-size:1.3rem;font-family:var(--font-head);letter-spacing:1px;margin-bottom:12px;text-shadow:0 0 12px rgba(206,172,105,0.5)}
+.theme-cta-callout p.highlight-quote{color:var(--text-sec);font-style:italic;margin-bottom:12px}
+.theme-cta-callout p.highlight-welcome{color:var(--gold-light);font-weight:700;font-size:1.1rem;letter-spacing:0.5px;margin-top:14px;text-shadow:0 0 8px rgba(206,172,105,0.3)}
 
 /* ============================================================
    RESOURCES

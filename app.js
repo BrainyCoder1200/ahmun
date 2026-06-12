@@ -415,8 +415,12 @@ function closeCommitteeModal() {
 }
 
 // Close modal when clicking outside of the content
-document.getElementById("committee-modal").addEventListener("click", function(e) {
-    if (e.target === this) {
-        closeCommitteeModal();
-    }
-});
+const committeeModal = document.getElementById("committee-modal");
+if (committeeModal) {
+    committeeModal.addEventListener("click", function(e) {
+        if (e.target === this) {
+            closeCommitteeModal();
+        }
+    });
+}
+
