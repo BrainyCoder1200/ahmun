@@ -1168,7 +1168,7 @@ body:hover .cursor-glow { opacity: 1; }
 .modal-content.pdf-modal-content {
     max-width: 1000px;
     width: 95%;
-    height: 88vh;
+    height: 94vh;
     display: flex;
     flex-direction: column;
     padding: 24px;
@@ -1222,18 +1222,20 @@ body:hover .cursor-glow { opacity: 1; }
 .pdf-viewer-container {
     flex: 1;
     width: 100%;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     background: rgba(5, 8, 16, 0.5);
     border-radius: calc(var(--radius) - 4px);
     border: 1px solid var(--glass-border);
     padding: 20px;
     position: relative;
+    gap: 20px;
 }
 
-#pdf-canvas {
+.pdf-page-canvas {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     background: #ffffff;
     max-width: 100%;
