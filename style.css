@@ -887,7 +887,7 @@ body:hover .cursor-glow { opacity: 1; }
 /* --- Core Secretariat Grid --- */
 .oc-core-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 32px;
     margin-bottom: 64px;
     justify-items: center;
@@ -957,11 +957,12 @@ body:hover .cursor-glow { opacity: 1; }
     font-weight: 500;
 }
 
-/* --- Departments Grid --- */
+/* --- Departments Grid (now Flexbox for exact row layouts) --- */
 .oc-depts-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 32px;
+    justify-content: center;
 }
 
 .oc-dept-card {
@@ -976,6 +977,18 @@ body:hover .cursor-glow { opacity: 1; }
     display: flex;
     flex-direction: column;
     gap: 28px;
+    width: 100%;
+}
+
+@media (min-width: 1025px) {
+    .oc-dept-card.w-50 {
+        flex: 0 0 calc((100% - 32px) / 2);
+        width: calc((100% - 32px) / 2);
+    }
+    .oc-dept-card.w-33 {
+        flex: 0 0 calc((100% - 64px) / 3);
+        width: calc((100% - 64px) / 3);
+    }
 }
 
 .oc-dept-card:hover {
@@ -1012,8 +1025,17 @@ body:hover .cursor-glow { opacity: 1; }
     justify-items: center;
 }
 
+.oc-dept-members.layout-stack {
+    grid-template-columns: 1fr;
+}
+
+.oc-dept-members.layout-head-top-alone .oc-member-row:first-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
 /* Center the lone last item when odd count */
-.oc-member-row:last-child:nth-child(odd) {
+.oc-dept-members:not(.layout-head-top-alone) .oc-member-row:last-child:nth-child(odd) {
     grid-column: 1 / -1;
     justify-self: center;
 }
@@ -1079,12 +1101,12 @@ body:hover .cursor-glow { opacity: 1; }
 /* --- Responsive --- */
 @media (max-width: 1024px) {
     .oc-core-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-    }
-    .oc-depts-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
+    }
+    .oc-dept-card {
+        flex: 1 1 calc((100% - 24px) / 2) !important;
+        width: calc((100% - 24px) / 2) !important;
     }
 }
 
@@ -1092,8 +1114,9 @@ body:hover .cursor-glow { opacity: 1; }
     .oc-core-grid {
         grid-template-columns: 1fr;
     }
-    .oc-depts-grid {
-        grid-template-columns: 1fr;
+    .oc-dept-card {
+        flex: 1 1 100% !important;
+        width: 100% !important;
     }
     .oc-dept-members {
         grid-template-columns: 1fr;
