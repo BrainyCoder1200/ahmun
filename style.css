@@ -990,6 +990,7 @@ body:hover .cursor-glow { opacity: 1; }
         display: flex;
         gap: 32px;
         width: 100%;
+        align-items: flex-start;
     }
     .oc-depts-split-row .decor-card {
         flex: 0 0 calc((100% - 32px) / 2);
