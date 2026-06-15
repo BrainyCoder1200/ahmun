@@ -376,6 +376,53 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // ========== 14. PDF VIEWER INTERACTION ==========
+    const prevBtn = document.getElementById("pdf-prev");
+    const nextBtn = document.getElementById("pdf-next");
+    const zoomInBtn = document.getElementById("pdf-zoom-in");
+    const zoomOutBtn = document.getElementById("pdf-zoom-out");
+
+    if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+            if (!pdfDoc || pageNum <= 1) return;
+            pageNum--;
+            queueRenderPage(pageNum);
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+            if (!pdfDoc || pageNum >= pdfDoc.numPages) return;
+            pageNum++;
+            queueRenderPage(pageNum);
+        });
+    }
+
+    if (zoomInBtn) {
+        zoomInBtn.addEventListener("click", () => {
+            if (!pdfDoc || scale >= 2.5) return;
+            scale += 0.25;
+            renderPage(pageNum);
+        });
+    }
+
+    if (zoomOutBtn) {
+        zoomOutBtn.addEventListener("click", () => {
+            if (!pdfDoc || scale <= 0.5) return;
+            scale -= 0.25;
+            renderPage(pageNum);
+        });
+    }
+
+    const brochureModal = document.getElementById("brochure-modal");
+    if (brochureModal) {
+        brochureModal.addEventListener("click", function (e) {
+            if (e.target === this) {
+                closeBrochureModal();
+            }
+        });
+    }
+
     observeAll();
     navigateToHash();
 });
@@ -423,4 +470,108 @@ if (committeeModal) {
         }
     });
 }
+
+// ========== PDF VIEWER ENGINE ==========
+let pdfDoc = null,
+    pageNum = 1,
+    pageRendering = false,
+    pageNumPending = null,
+    scale = 1.25,
+    canvas = null,
+    ctx = null;
+
+function renderPage(num) {
+    pageRendering = true;
+    const spinner = document.getElementById("pdf-loading-state");
+    if (spinner) spinner.style.display = "flex";
+    if (canvas) canvas.style.display = "none";
+
+    pdfDoc.getPage(num).then((page) => {
+        const viewport = page.getViewport({ scale: scale });
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        const renderContext = {
+            canvasContext: ctx,
+            viewport: viewport
+        };
+        const renderTask = page.render(renderContext);
+
+        renderTask.promise.then(() => {
+            pageRendering = false;
+            if (spinner) spinner.style.display = "none";
+            if (canvas) canvas.style.display = "block";
+
+            if (pageNumPending !== null) {
+                renderPage(pageNumPending);
+                pageNumPending = null;
+            }
+        });
+    }).catch(err => {
+        console.error("Error rendering page:", err);
+        pageRendering = false;
+        if (spinner) {
+            spinner.innerHTML = `<p style="color: var(--text-sec); text-align: center;"><i class="fa-solid fa-triangle-exclamation" style="font-size: 2rem; color: var(--gold); margin-bottom: 12px;"></i><br>Failed to render page.</p>`;
+        }
+    });
+
+    const pageIndicator = document.getElementById("pdf-page-indicator");
+    if (pageIndicator) {
+        pageIndicator.innerText = `Page ${num} / ${pdfDoc.numPages}`;
+    }
+}
+
+function queueRenderPage(num) {
+    if (pageRendering) {
+        pageNumPending = num;
+    } else {
+        renderPage(num);
+    }
+}
+
+function openBrochureModal() {
+    const modal = document.getElementById("brochure-modal");
+    if (modal) {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+
+    canvas = document.getElementById("pdf-canvas");
+    if (canvas) ctx = canvas.getContext("2d");
+
+    const spinner = document.getElementById("pdf-loading-state");
+    if (spinner) {
+        spinner.innerHTML = `<div class="pdf-spinner"></div><p>Loading Brochure Manual...</p>`;
+        spinner.style.display = "flex";
+    }
+    if (canvas) canvas.style.display = "none";
+
+    if (typeof pdfjsLib === 'undefined') {
+        console.error("PDF.js library is not loaded.");
+        if (spinner) {
+            spinner.innerHTML = `<p style="color: var(--text-sec); text-align: center;"><i class="fa-solid fa-triangle-exclamation" style="font-size: 2rem; color: var(--gold); margin-bottom: 12px;"></i><br>PDF library failed to load. Please download the brochure directly.</p>`;
+        }
+        return;
+    }
+
+    pdfjsLib.getDocument('brochure.pdf').promise.then((pdfDoc_) => {
+        pdfDoc = pdfDoc_;
+        pageNum = 1;
+        renderPage(pageNum);
+    }).catch((err) => {
+        console.error("Error loading PDF:", err);
+        if (spinner) {
+            spinner.innerHTML = `<p style="color: var(--text-sec); text-align: center; padding: 20px;"><i class="fa-solid fa-triangle-exclamation" style="font-size: 2rem; color: var(--gold); margin-bottom: 12px;"></i><br>Failed to load brochure.pdf. Make sure you name the uploaded file exactly "brochure.pdf" and place it in the project root directory.</p>`;
+        }
+    });
+}
+
+function closeBrochureModal() {
+    const modal = document.getElementById("brochure-modal");
+    if (modal) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+    }
+}
+
 

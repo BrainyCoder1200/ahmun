@@ -119,6 +119,7 @@
                     </div>
 
                     <div class="hero-cta animate-slide-up">
+                        <a href="#oc" class="btn btn-outline btn-large">Meet the OC</a>
                         <a href="https://forms.gle/HBk9FhtNU1gdoDPh7" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-large btn-glow" style="font-family: var(--font-head); font-size: 1.3rem; letter-spacing: 1px; padding: 16px 40px;">Register Now</a>
                         <a href="#resources" class="btn btn-outline btn-large">Conference Guide</a>
                     </div>
@@ -405,7 +406,7 @@
                             <h4 class="text-gold"><i class="fa-solid fa-book-open"></i> Brochure Details</h4>
                             <p>The official brochure with schedule and committee slots will be published here once registration dates are announced. The delegation fee is ₹2,200.</p>
                             <div class="brochure-actions">
-                                <span class="btn btn-outline btn-disabled"><i class="fa-solid fa-lock"></i> Coming Soon</span>
+                                <button onclick="openBrochureModal()" class="btn btn-gold" style="border-radius: 30px; font-weight: 700; letter-spacing: 1px; padding: 12px 24px;"><i class="fa-solid fa-file-pdf"></i> View Brochure</button>
                             </div>
                         </div>
                     </div>
@@ -1037,8 +1038,10 @@
                             <div class="contact-card-content">
                                 <h4>Email</h4>
                                 <p><strong>Secretariat:</strong> <a href="mailto:ahmun@avalonheights.co.in" class="link-gold">ahmun@avalonheights.co.in</a></p>
-                                <p><strong>MUN Co-ordinator:</strong> <a href="mailto:raj.kudalkar@avalonheights.co.in" class="link-gold">raj.kudalkar@avalonheights.co.in</a></p>
                                 <p><strong>Secretary-General:</strong> <a href="mailto:nishita1530@avalonheights.co.in" class="link-gold">nishita1530@avalonheights.co.in</a></p>
+                                <p><strong>Director General:</strong> <a href="mailto:hunar2073@avalonheights.co.in" class="link-gold">hunar2073@avalonheights.co.in</a></p>
+                                <p><strong>Charge D'Affairs:</strong> <a href="mailto:tiya1568@avalonheights.co.in" class="link-gold">tiya1568@avalonheights.co.in</a></p>
+                                <p><strong>MUN Co-ordinator:</strong> <a href="mailto:raj.kudalkar@avalonheights.co.in" class="link-gold">raj.kudalkar@avalonheights.co.in</a></p>
                             </div>
                         </div>
                         <div class="glass-card contact-card" style="align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 30px; gap: 20px;">
@@ -1115,6 +1118,8 @@
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <p><i class="fa-solid fa-envelope text-gold"></i> <a href="mailto:nishita1530@avalonheights.co.in">nishita1530@avalonheights.co.in</a></p>
+                    <p><i class="fa-solid fa-envelope text-gold"></i> <a href="mailto:hunar2073@avalonheights.co.in">hunar2073@avalonheights.co.in</a></p>
+                    <p><i class="fa-solid fa-envelope text-gold"></i> <a href="mailto:tiya1568@avalonheights.co.in">tiya1568@avalonheights.co.in</a></p>
                     <p><i class="fa-solid fa-envelope text-gold"></i> <a href="mailto:raj.kudalkar@avalonheights.co.in">raj.kudalkar@avalonheights.co.in</a></p>
                     <p><i class="fa-solid fa-school text-gold"></i> Avalon Heights, Vashi</p>
                 </div>
@@ -1154,6 +1159,38 @@
         </div>
     </div>
 
+    <!-- Brochure Modal -->
+    <div class="modal-overlay" id="brochure-modal">
+        <div class="modal-content glass-card pdf-modal-content">
+            <div class="pdf-modal-header">
+                <h3><i class="fa-solid fa-book-open text-gold"></i> AHMUN 8.0 Brochure</h3>
+                <div class="pdf-controls">
+                    <button id="pdf-prev" class="btn btn-outline btn-small" style="padding: 6px 12px; border-radius: 20px;"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="pdf-page-indicator" class="pdf-page-indicator">Page 1 / 1</span>
+                    <button id="pdf-next" class="btn btn-outline btn-small" style="padding: 6px 12px; border-radius: 20px;"><i class="fa-solid fa-chevron-right"></i></button>
+                    <button id="pdf-zoom-out" class="btn btn-outline btn-small" style="padding: 6px 10px; border-radius: 50%; margin-left: 8px;"><i class="fa-solid fa-minus"></i></button>
+                    <button id="pdf-zoom-in" class="btn btn-outline btn-small" style="padding: 6px 10px; border-radius: 50%;"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <div class="pdf-actions">
+                    <a href="brochure.pdf" download="AHMUN_8.0_Brochure.pdf" class="btn btn-gold btn-small" style="padding: 8px 16px; border-radius: 20px; font-weight: 600;"><i class="fa-solid fa-download"></i> Download</a>
+                    <button class="modal-close" onclick="closeBrochureModal()" style="position: static; font-size: 1.4rem; padding: 4px; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+            <div class="pdf-viewer-container" id="pdf-viewer-container">
+                <canvas id="pdf-canvas"></canvas>
+                <div id="pdf-loading-state" class="pdf-loading">
+                    <div class="pdf-spinner"></div>
+                    <p>Loading Brochure Manual...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF.js Library CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+    </script>
     <script src="app.js?v=6"></script>
 
 </body>
