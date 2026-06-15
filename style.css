@@ -879,3 +879,223 @@ body:hover .cursor-glow { opacity: 1; }
         height: 40px;
     }
 }
+
+/* ============================================================
+   ORGANIZING COMMITTEE (OC) SECTION
+   ============================================================ */
+
+/* --- Core Secretariat Grid --- */
+.oc-core-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 64px;
+    justify-items: center;
+}
+
+.oc-card {
+    padding: 28px 20px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--glass-border);
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 8px 32px rgba(0,0,0,.3);
+    border-radius: var(--radius);
+    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+    width: 100%;
+    max-width: 280px;
+}
+
+.oc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--gold-glow);
+    border-color: var(--gold-border);
+}
+
+.oc-avatar-container {
+    width: 230px;
+    height: 230px;
+    border-radius: 8px;
+    border: 2px solid var(--gold-border);
+    overflow: hidden;
+    margin-bottom: 16px;
+    transition: all 0.35s var(--ease);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    background: var(--bg-surface);
+}
+
+.oc-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.5s var(--ease);
+}
+
+.oc-card:hover .oc-avatar-container {
+    border-color: var(--gold);
+    box-shadow: var(--gold-glow);
+}
+
+.oc-card:hover .oc-avatar-img {
+    transform: scale(1.05);
+}
+
+.oc-card h4 {
+    display: none;
+}
+
+.oc-card .oc-role {
+    font-size: 0.78rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+}
+
+/* --- Departments Grid --- */
+.oc-depts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+.oc-dept-card {
+    padding: 36px 32px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 8px 32px rgba(0,0,0,.3);
+    border-radius: var(--radius);
+    transition: all 0.35s var(--ease);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.oc-dept-card:hover {
+    border-color: rgba(206, 172, 105, 0.25);
+    box-shadow: var(--gold-glow);
+}
+
+.oc-dept-header {
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.oc-dept-icon {
+    font-size: 1.4rem;
+    color: var(--gold);
+}
+
+.oc-dept-title {
+    font-family: var(--font-head);
+    font-size: 1.2rem;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Department Members Grid --- */
+.oc-dept-members {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 24px;
+    justify-items: center;
+}
+
+/* Center the lone last item when odd count */
+.oc-member-row:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.oc-member-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.oc-member-avatar-container {
+    width: 190px;
+    height: 190px;
+    border-radius: 8px;
+    border: 1.5px solid var(--gold-border);
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: all 0.35s var(--ease);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: var(--bg-surface);
+}
+
+.oc-member-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.5s var(--ease);
+}
+
+.oc-member-row:hover .oc-member-avatar-container {
+    border-color: var(--gold);
+    transform: scale(1.05);
+    box-shadow: 0 0 14px rgba(206,172,105,0.35);
+}
+
+.oc-member-row:hover .oc-member-avatar-img {
+    transform: scale(1.05);
+}
+
+/* --- Member Name & Role --- */
+.oc-member-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.oc-member-name {
+    display: none;
+}
+
+.oc-member-role {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+    .oc-core-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+    .oc-depts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .oc-core-grid {
+        grid-template-columns: 1fr;
+    }
+    .oc-depts-grid {
+        grid-template-columns: 1fr;
+    }
+    .oc-dept-members {
+        grid-template-columns: 1fr;
+    }
+}
