@@ -953,8 +953,9 @@ body:hover .cursor-glow { opacity: 1; }
     font-size: 0.78rem;
     color: var(--gold);
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     font-weight: 500;
+    white-space: nowrap;
 }
 
 /* --- Departments Grid (now Flexbox for exact row layouts) --- */
@@ -1091,11 +1092,12 @@ body:hover .cursor-glow { opacity: 1; }
 }
 
 .oc-member-role {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     margin-top: 2px;
+    white-space: nowrap;
 }
 
 /* --- Responsive --- */
