@@ -986,6 +986,10 @@ body:hover .cursor-glow { opacity: 1; }
         flex: 0 0 calc((100% - 32px) / 2);
         width: calc((100% - 32px) / 2);
     }
+    .oc-dept-card.w-33 {
+        flex: 0 0 calc((100% - 64px) / 3);
+        width: calc((100% - 64px) / 3);
+    }
     .oc-depts-split-row {
         display: flex;
         gap: 32px;
