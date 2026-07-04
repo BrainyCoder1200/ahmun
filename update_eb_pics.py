@@ -3,7 +3,7 @@ import re
 mapping = {
     "Harshkumar Kedia": "Harshkumar.jpeg",
     "Kairav Shah": "Kairav.jpeg",
-    "Dharmik Vasa": "Dharmik.jpeg",
+    "Nishka Mehta": "Nishka.jpeg",
     "Rishabhh Agarwaal": "Rishabh.jpeg",
     "Taher": "Taher.jpeg",
     "Uday": "Uday.jpeg",
