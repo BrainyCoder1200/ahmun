@@ -464,6 +464,19 @@ function openCommitteeModal(title, fullname, iconHtml, agenda, desc) {
     document.getElementById("modal-icon").innerHTML = iconHtml;
     document.getElementById("modal-agenda").innerText = agenda;
     document.getElementById("modal-desc").innerText = desc;
+
+    // Set up Study Guide Download Button
+    const studyGuideBtn = document.getElementById("download-study-guide-btn");
+    if (studyGuideBtn) {
+        if (title && title !== 'CLASSIFIED') {
+            studyGuideBtn.style.display = "inline-flex";
+            studyGuideBtn.href = `AHMUN 8.0 ${title} Study Guide.pdf`;
+            studyGuideBtn.download = `AHMUN_8.0_${title}_Study_Guide.pdf`;
+        } else {
+            studyGuideBtn.style.display = "none";
+        }
+    }
+
     const meetBtn = document.getElementById("meet-eb-btn");
     meetBtn.href = "javascript:void(0)";
     meetBtn.onclick = function (e) {
