@@ -158,11 +158,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const hoursEl = document.getElementById("hours");
     const minsEl = document.getElementById("minutes");
     const secsEl = document.getElementById("seconds");
+    let countdownInterval;
 
     function updateCountdown() {
         const gap = targetDate - Date.now();
         if (gap <= 0) {
-            [daysEl, hoursEl, minsEl, secsEl].forEach(el => { if (el) el.innerText = "00"; });
+            if (countdownInterval) clearInterval(countdownInterval);
+            const labelEl = document.querySelector(".countdown-label");
+            if (labelEl) labelEl.style.display = "none";
+            const timerEl = document.getElementById("countdown-timer");
+            if (timerEl) {
+                timerEl.className = "countdown-finished-msg animate-fade-in";
+                timerEl.innerHTML = `
+                    <i class="fa-solid fa-hourglass-end text-gold"></i>
+                    <span>AHMUN 8.0 is now in progress!</span>
+                `;
+            }
             return;
         }
         const d = Math.floor(gap / 86400000);
@@ -175,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (secsEl) secsEl.innerText = String(s).padStart(2, "0");
     }
     updateCountdown();
-    setInterval(updateCountdown, 1000);
+    countdownInterval = setInterval(updateCountdown, 1000);
 
     // ========== 7. ANIMATED STAT COUNTERS ==========
     const statNumbers = document.querySelectorAll(".stat-number");

@@ -144,6 +144,11 @@ a{color:inherit;text-decoration:none}
 .countdown-item .label{font-size:.85rem;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-top:8px}
 .countdown-sep{font-size:3.5rem;color:var(--gold);font-weight:700;line-height:1;margin-top:-20px}
 
+/* Countdown Finished Message */
+.countdown-finished-msg{display:flex;justify-content:center;align-items:center;gap:16px;margin-bottom:40px;font-family:var(--font-head);font-size:2.2rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:2px;text-shadow:0 0 15px rgba(206,172,105,0.4);animation:pulseMessage 2s infinite alternate}
+.countdown-finished-msg i{font-size:2rem;color:var(--gold);filter:drop-shadow(0 0 8px rgba(206,172,105,0.5))}
+@keyframes pulseMessage{0%{opacity:.9;transform:scale(.98);text-shadow:0 0 10px rgba(206,172,105,.3)}100%{opacity:1;transform:scale(1.02);text-shadow:0 0 25px rgba(206,172,105,.7)}}
+
 /* Hero CTA */
 .hero-cta{display:flex;justify-content:center;gap:16px;margin-bottom:40px}
 .scroll-indicator{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--text-muted);font-size:.8rem;letter-spacing:1px}
@@ -547,6 +552,8 @@ a{color:inherit;text-decoration:none}
     .theme-main-title{font-size:clamp(2.2rem,6vw,3.5rem)}
     .committees-grid, .eb-cards-grid {grid-template-columns:1fr; gap: 20px;}
     .section-padding{padding:60px 0}
+    .countdown-finished-msg{font-size:1.6rem;gap:12px;letter-spacing:1px}
+    .countdown-finished-msg i{font-size:1.5rem}
 }
 
 @media(max-width:480px){
@@ -556,7 +563,8 @@ a{color:inherit;text-decoration:none}
     .countdown-item .number{font-size:1.8rem}
     .countdown-item .label{font-size:.65rem}
     .countdown-sep{font-size:1.8rem;margin:0 2px;margin-top:-14px}
-    
+    .countdown-finished-msg{font-size:1.25rem;gap:8px;letter-spacing:0.5px}
+    .countdown-finished-msg i{font-size:1.2rem}
 }
 
 .eb-group { scroll-margin-top: 100px; }
